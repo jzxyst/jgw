@@ -9,7 +9,9 @@ ENV PATH $PATH:/composer/vendor/bin
 # 必要なパッケージのインストール
 RUN apt-get update \
     && apt-get install -y zlib1g-dev libzip-dev unzip \
-    && docker-php-ext-install zip
+    && docker-php-ext-install zip \
+    && pecl install xdebug-2.7.0beta1 \
+    && docker-php-ext-enable xdebug
 
 # composerのインストール
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
