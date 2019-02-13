@@ -1,4 +1,4 @@
-FROM php:fpm
+FROM php:7.3.0-fpm
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV DEBIAN_FRONTEND noninteractive
