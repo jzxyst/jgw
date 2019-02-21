@@ -26,4 +26,19 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
 
 # Laravelのインストール
 WORKDIR /src
-RUN composer global require "laravel/installer"
+#RUN composer global require "laravel/installer"
+
+# library setup
+WORKDIR /src/laravel
+#RUN composer install
+
+# permissionの設定
+#RUN chmod -R 777 \
+#	/var/www/storage \
+#	/var/www/bootstrap/cache
+
+# Laravel setup
+#RUN php artisan key:generate \
+#	&& php artisan config:clear \
+#	&& php artisan config:cache \
+#	&& php artisan optimize
