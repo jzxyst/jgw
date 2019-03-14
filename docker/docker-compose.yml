@@ -19,13 +19,14 @@ services:
 
   mysql:
     image: mysql
-    restart: always
-    environment:
-      MYSQL_DATABASE: root
-      MYSQL_ROOT_PASSWORD: root
     container_name: "jgw-mysql"
     ports:
       - 3306:3306
+    restart: always
+    env_file:
+      - ./mysql/.env
+    volumes:
+      - ./mysql/mount:/var/lib/mysql
 
   redis:
     image: redis:alpine
