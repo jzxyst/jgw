@@ -20,4 +20,4 @@ Homestead.json
 .rocketeer/
 
 # docker development local data
-docker/mysql/mount
+docker/mysql/mount/var/lib/mysql

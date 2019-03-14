@@ -26,7 +26,8 @@ services:
     env_file:
       - ./mysql/.env
     volumes:
-      - ./mysql/mount:/var/lib/mysql
+      - ./mysql/mount/var/lib/mysql:/var/lib/mysql
+      - ./mysql/mount/etc/my.cnf:/etc/my.cnf
 
   redis:
     image: redis:alpine

@@ -8,8 +8,8 @@ ENV PATH $PATH:/composer/vendor/bin
 
 # 必要なパッケージのインストール
 RUN apt-get update \
-	&& apt-get install -y zlib1g-dev libzip-dev unzip \
-	&& docker-php-ext-install zip \
+	&& apt-get install -y zlib1g-dev libzip-dev unzip libpq-dev \
+	&& docker-php-ext-install zip pdo_mysql \
 	&& pecl install xdebug-2.7.0beta1 \
 	&& docker-php-ext-enable xdebug
 
