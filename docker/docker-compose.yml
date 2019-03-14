@@ -3,7 +3,7 @@ version: '3'
 services:
   nginx:
     image: nginx
-    container_name: "nginx"
+    container_name: "jgw-nginx"
     ports:
       - "80:80"
     volumes:
@@ -12,23 +12,23 @@ services:
 
   php:
     build: ./php
-    container_name: "php"
+    container_name: "jgw-php"
     volumes:
       - ./../src:/src
       - ./php/php.ini:/usr/local/etc/php/php.ini
 
   mysql:
     image: mysql
-    container_name: "mysql"
     restart: always
     environment:
       MYSQL_DATABASE: root
       MYSQL_ROOT_PASSWORD: root
+    container_name: "jgw-mysql"
     ports:
       - 3306:3306
 
   redis:
     image: redis:alpine
-    container_name: "redis"
+    container_name: "jgw-redis"
     ports:
       - 6379:6379
