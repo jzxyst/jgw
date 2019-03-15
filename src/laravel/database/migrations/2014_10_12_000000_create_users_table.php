@@ -6,6 +6,8 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateUsersTable extends Migration
 {
+    private $table_name = 'users';
+
     /**
      * Run the migrations.
      *
@@ -13,14 +15,19 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
+        Schema::create($this->table_name, function (Blueprint $table) {
+            $table->increments('user_id')->comment('ユーザID');
+            $table->string('mail')->unique()->comment('メールアドレス');
+            $table->string('name1')->nullable()->comment('名字');
+            $table->string('name2')->nullable()->comment('名前');
+            $table->string('name_kana1')->nullable()->comment('名字(ふりがな)');
+            $table->string('name_kana2')->nullable()->comment('名前(ふりがな)');
+            $table->unsignedTinyInteger('sex_id')->comment('性別ID');
+            $table->binary('password')->comment('パスワード');
+            $table->string('salt')->comment('salt');
+            $table->string('unique_id')->unique()->comment('ユニークID');
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });
     }
 
@@ -31,6 +38,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists($this->table_name);
     }
 }
