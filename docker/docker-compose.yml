@@ -2,7 +2,7 @@ version: '3'
 
 services:
   nginx:
-    image: nginx
+    image: nginx:1-alpine
     container_name: "jgw-nginx"
     ports:
       - "80:80"
@@ -18,7 +18,7 @@ services:
       - ./php/php.ini:/usr/local/etc/php/php.ini
 
   mysql:
-    image: mysql
+    image: mysql:8
     container_name: "jgw-mysql"
     ports:
       - 3306:3306
@@ -30,7 +30,7 @@ services:
       - ./mysql/mount/etc/my.cnf:/etc/my.cnf
 
   redis:
-    image: redis:alpine
+    image: redis:5-alpine
     container_name: "jgw-redis"
     ports:
       - 6379:6379
