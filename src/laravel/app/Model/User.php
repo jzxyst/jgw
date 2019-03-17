@@ -29,4 +29,9 @@ class User extends Authenticatable
     protected $hidden = [
         'user_id', 'password', 'salt',
     ];
+
+    public function sex()
+    {
+        return $this->hasOne('\App\Model\Sex', 'sex_id', 'sex_id');
+    }
 }
