@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model;
+namespace App\Orm;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -32,6 +32,6 @@ class User extends Authenticatable
 
     public function sex()
     {
-        return $this->hasOne('\App\Model\Sex', 'sex_id', 'sex_id');
+        return $this->hasOne('\App\Orm\Sex', 'sex_id', 'sex_id');
     }
 }
