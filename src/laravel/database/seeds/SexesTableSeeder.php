@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Enums\Sex;
 
 class SexesTableSeeder extends Seeder
 {
@@ -13,10 +14,10 @@ class SexesTableSeeder extends Seeder
     {
         // ISO 5218
         DB::table('sexes')->insert([
-            ['sex_code' => '0', 'sex_name' => 'not known'],
-            ['sex_code' => '1', 'sex_name' => 'male'],
-            ['sex_code' => '2', 'sex_name' => 'female'],
-            ['sex_code' => '9', 'sex_name' => 'not applicable'],
+            ['sex_code' => Sex::NOT_KNOWN, 'sex_name' => Sex::getDescription(Sex::NOT_KNOWN)],
+            ['sex_code' => Sex::MALE, 'sex_name' => Sex::getDescription(Sex::MALE)],
+            ['sex_code' => Sex::FEMALE, 'sex_name' => Sex::getDescription(Sex::FEMALE)],
+            ['sex_code' => Sex::NOT_APPLICABLE, 'sex_name' => Sex::getDescription(Sex::NOT_APPLICABLE)],
         ]);
     }
 }
