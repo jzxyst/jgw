@@ -5,7 +5,7 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class RomaziAiueo extends TestCase
+class RomaziAiueoTest extends TestCase
 {
     public function test_getRandomName()
     {

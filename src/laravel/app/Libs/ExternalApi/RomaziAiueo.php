@@ -46,7 +46,7 @@ class RomaziAiueo
         $jsonp = (string)$response->getBody();
 
         // JSONP→JSON
-        $json = \App\Libs\Utility\Json::convertJsonpToJson($jsonp);
+        $json = \Jzxyst\Util\Json::convertJsonpToJson($jsonp);
 
         // JSON→array
         $users = json_decode($json, true);

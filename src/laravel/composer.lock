@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "66ca7343889332c2b8ecca11c251430c",
+    "content-hash": "df6345335707881b7557fce8fe8d8e13",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -636,6 +636,42 @@
             ],
             "description": "Highlight PHP code in terminal",
             "time": "2018-09-29T18:48:56+00:00"
+        },
+        {
+            "name": "jzxyst/json-util",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jzxyst/php-json-util.git",
+                "reference": "ba56998b7ebd25e6de600b62626ac175735e956f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jzxyst/php-json-util/zipball/ba56998b7ebd25e6de600b62626ac175735e956f",
+                "reference": "ba56998b7ebd25e6de600b62626ac175735e956f",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jzxyst\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Shohei Mizuno",
+                    "email": "jzxyst@gmail.com"
+                }
+            ],
+            "description": "JSON Utility.",
+            "time": "2019-03-20T09:13:18+00:00"
         },
         {
             "name": "laravel/framework",
