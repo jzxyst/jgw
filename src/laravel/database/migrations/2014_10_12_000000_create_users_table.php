@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use \App\Enums\Position;
 
 class CreateUsersTable extends Migration
 {
@@ -23,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('name_kana1')->nullable()->comment('名字(ふりがな)');
             $table->string('name_kana2')->nullable()->comment('名前(ふりがな)');
             $table->unsignedTinyInteger('sex_id')->comment('性別ID');
+            $table->unsignedSmallInteger('position_id')->default(Position::NotSet)->comment('役職ID');
             $table->binary('password')->comment('パスワード');
             $table->string('unique_id')->unique()->comment('ユニークID');
             $table->timestamp('email_verified_at')->nullable();
