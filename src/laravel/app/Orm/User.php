@@ -27,7 +27,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'user_id', 'password', 'salt',
+        'user_id', 'password', 'email_verified_at'
     ];
 
     public function sex()
