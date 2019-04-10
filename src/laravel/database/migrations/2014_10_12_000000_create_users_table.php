@@ -21,8 +21,6 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique()->comment('メールアドレス');
             $table->string('name1')->nullable()->comment('名字');
             $table->string('name2')->nullable()->comment('名前');
-            $table->string('name_kana1')->nullable()->comment('名字(ふりがな)');
-            $table->string('name_kana2')->nullable()->comment('名前(ふりがな)');
             $table->unsignedTinyInteger('sex_id')->comment('性別ID');
             $table->unsignedSmallInteger('position_id')->default(Position::NotSet)->comment('役職ID');
             $table->binary('password')->comment('パスワード');
