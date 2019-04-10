@@ -12,7 +12,7 @@ class User extends ModelBase
     /**
      * Insert new record to User table.
      * @param array $data
-     * @return mixed|void
+     * @return mixed
      */
     public static function create(array $data)
     {
