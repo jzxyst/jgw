@@ -24,7 +24,6 @@ class CreateUsersTable extends Migration
             $table->string('name_kana2')->nullable()->comment('名前(ふりがな)');
             $table->unsignedTinyInteger('sex_id')->comment('性別ID');
             $table->binary('password')->comment('パスワード');
-            $table->string('salt')->comment('salt');
             $table->string('unique_id')->unique()->comment('ユニークID');
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
