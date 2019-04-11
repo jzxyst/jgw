@@ -37,9 +37,6 @@ class Test extends Command
      */
     public function handle()
     {
-        //
-        $user = new \App\Libs\Seeder\User();
-        $users = $user->getUser(200);
-        print_r($users);
+        // 
     }
 }
