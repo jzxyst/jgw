@@ -3,6 +3,10 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use App\Libs\Utility\Sql;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +27,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // Local環境ではSQLの実行ログを残す
+        if (\App::environment('local')) {
+            DB::listen(function ($query) {
+                $sql = Sql::replaceBoundQuery($query);
+                Log::debug("Query Time:{$query->time}s {$sql}");
+            });
+        }
     }
 }
