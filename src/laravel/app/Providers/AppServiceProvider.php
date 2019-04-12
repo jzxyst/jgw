@@ -30,8 +30,8 @@ class AppServiceProvider extends ServiceProvider
         // Local環境ではSQLの実行ログを残す
         if (\App::environment('local')) {
             DB::listen(function ($query) {
-                $sql = Sql::replaceBoundQuery($query);
-                Log::debug("Query Time:{$query->time}s {$sql}");
+//                $sql = Sql::replaceBoundQuery($query);
+                Log::debug("Query Time:{$query->time}s {$query->sql}");
             });
         }
     }
