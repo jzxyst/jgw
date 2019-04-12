@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->unsignedSmallInteger('position_id')->default(Position::NotSet)->comment('役職ID');
             $table->string('password')->comment('パスワード');
             $table->string('unique_id')->unique()->comment('ユニークID');
+            $table->rememberToken();
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
