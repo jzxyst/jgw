@@ -42,3 +42,6 @@ WORKDIR /src/laravel
 #	&& php artisan config:clear \
 #	&& php artisan config:cache \
 #	&& php artisan optimize
+
+# todo
+# php artisan passport:keys
