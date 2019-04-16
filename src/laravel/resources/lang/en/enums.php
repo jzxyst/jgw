@@ -29,5 +29,23 @@ return [
         \App\Enums\Position::SectionHead => 'section head',
         \App\Enums\Position::Manager => 'manager',
         \App\Enums\Position::President => 'president',
+    ],
+
+    \App\Enums\WorkStateGroup::class => [
+//        \App\Enums\WorkStateGroup::Undef => 'undef',
+        \App\Enums\WorkStateGroup::Begin => 'begin',
+        \App\Enums\WorkStateGroup::Finish => 'finish',
+        \App\Enums\WorkStateGroup::Out => 'out',
+        \App\Enums\WorkStateGroup::OnTheWay => 'on the way',
+        \App\Enums\WorkStateGroup::Arrive => 'arrive',
+    ],
+
+    \App\Enums\WorkState::class => [
+//        \App\Enums\WorkState::Undef => 'undef',
+        \App\Enums\WorkState::Begin => 'begin',
+        \App\Enums\WorkState::Finish => 'finish',
+        \App\Enums\WorkState::Out => 'out',
+        \App\Enums\WorkState::OnTheWay => 'on the way',
+        \App\Enums\WorkState::Arrive => 'arrive',
     ]
 ];
