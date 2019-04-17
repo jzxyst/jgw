@@ -47,4 +47,12 @@ class User extends Authenticatable
     {
         return $this->hasOne('\App\Orm\Position', 'position_id', 'position_id');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function userWorkStatus()
+    {
+        return $this->hasOne('\App\Orm\UserWorkStatus', 'user_id', 'user_id');
+    }
 }
