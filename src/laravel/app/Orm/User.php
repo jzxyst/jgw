@@ -32,6 +32,9 @@ class User extends Authenticatable
         'user_id', 'password', 'email_verified_at'
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
     public function sex()
     {
         return $this->hasOne('\App\Orm\Sex', 'sex_id', 'sex_id');
