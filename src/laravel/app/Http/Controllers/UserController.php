@@ -87,16 +87,16 @@ class UserController extends Controller
 
         // no record.
         if (isset($user) === false) {
-            response()->json($user, \Illuminate\Http\Response::HTTP_NOT_FOUND);
+            return response()->json($user, \Illuminate\Http\Response::HTTP_NOT_FOUND);
         }
 
         // already soft deleted.
         if ($user->trashed()) {
-            response()->json($user, \Illuminate\Http\Response::HTTP_GONE);
+            return response()->json($user, \Illuminate\Http\Response::HTTP_GONE);
         }
 
         $user->delete();
 
-        response()->json($user, \Illuminate\Http\Response::HTTP_NO_CONTENT);
+        return response()->json($user, \Illuminate\Http\Response::HTTP_NO_CONTENT);
     }
 }
