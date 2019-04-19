@@ -16,7 +16,7 @@ class UserController extends Controller
     public function index()
     {
         return response()->json(
-            \App\Orm\User::paginate()
+            User::paginate()
         );
     }
 
