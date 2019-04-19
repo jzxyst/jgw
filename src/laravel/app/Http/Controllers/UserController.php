@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Orm\User;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class UserController extends Controller
 {
@@ -26,7 +27,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return response()->noContent(Response::HTTP_METHOD_NOT_ALLOWED);
     }
 
     /**
@@ -59,7 +60,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return response()->noContent(Response::HTTP_METHOD_NOT_ALLOWED);
     }
 
     /**
@@ -87,16 +88,16 @@ class UserController extends Controller
 
         // no record.
         if (isset($user) === false) {
-            return response()->json($user, \Illuminate\Http\Response::HTTP_NOT_FOUND);
+            return response()->json($user, Response::HTTP_NOT_FOUND);
         }
 
         // already soft deleted.
         if ($user->trashed()) {
-            return response()->json($user, \Illuminate\Http\Response::HTTP_GONE);
+            return response()->json($user, Response::HTTP_GONE);
         }
 
         $user->delete();
 
-        return response()->json($user, \Illuminate\Http\Response::HTTP_NO_CONTENT);
+        return response()->json($user, Response::HTTP_NO_CONTENT);
     }
 }
