@@ -86,12 +86,12 @@ class UserController extends Controller
     {
         $user = User::withTrashed()->find($id);
 
-        // no record.
+        // No record.
         if (isset($user) === false) {
             return response()->json($user, Response::HTTP_NOT_FOUND);
         }
 
-        // already soft deleted.
+        // Already soft deleted.
         if ($user->trashed()) {
             return response()->json($user, Response::HTTP_GONE);
         }
