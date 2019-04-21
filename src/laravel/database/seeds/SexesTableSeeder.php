@@ -14,10 +14,10 @@ class SexesTableSeeder extends Seeder
     {
         // ISO 5218
         DB::table('sexes')->insert([
-            ['sex_code' => Sex::NOT_KNOWN, 'sex_name' => Sex::getDescription(Sex::NOT_KNOWN)],
-            ['sex_code' => Sex::MALE, 'sex_name' => Sex::getDescription(Sex::MALE)],
-            ['sex_code' => Sex::FEMALE, 'sex_name' => Sex::getDescription(Sex::FEMALE)],
-            ['sex_code' => Sex::NOT_APPLICABLE, 'sex_name' => Sex::getDescription(Sex::NOT_APPLICABLE)],
+            ['sex_id' => Sex::NOT_KNOWN, 'sex_name' => Sex::getDescription(Sex::NOT_KNOWN)],
+            ['sex_id' => Sex::MALE, 'sex_name' => Sex::getDescription(Sex::MALE)],
+            ['sex_id' => Sex::FEMALE, 'sex_name' => Sex::getDescription(Sex::FEMALE)],
+            ['sex_id' => Sex::NOT_APPLICABLE, 'sex_name' => Sex::getDescription(Sex::NOT_APPLICABLE)],
         ]);
     }
 }

@@ -20,7 +20,7 @@ $factory->define(\App\Orm\User::class, function (Faker $faker) {
         'email' => $faker->unique()->safeEmail,
         'last_name' => $faker->lastName,
         'first_name' => $faker->firstName,
-        'sex_id' => \App\Orm\Sex::where('sex_code', Sex::getRandomValue())->first(),
+        'sex_id' => Sex::getRandomValue(),
         'password' => $faker->password,
         'unique_id' => $faker->unique()->md5,
         'email_verified_at' => now(),

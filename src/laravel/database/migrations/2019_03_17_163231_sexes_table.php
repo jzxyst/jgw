@@ -16,8 +16,7 @@ class SexesTable extends Migration
     public function up()
     {
         Schema::create($this->table_name, function (Blueprint $table) {
-            $table->increments('sex_id')->comment('性別ID');
-            $table->unsignedTinyInteger('sex_code')->unique()->comment('性別コード');
+            $table->unsignedTinyInteger('sex_id')->primary()->comment('性別ID');
             $table->string('sex_name')->comment('性別名');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
