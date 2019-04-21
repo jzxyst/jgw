@@ -19,8 +19,8 @@ class CreateUsersTable extends Migration
         Schema::create($this->table_name, function (Blueprint $table) {
             $table->increments('user_id')->comment('ユーザID');
             $table->string('email')->unique()->comment('メールアドレス');
-            $table->string('name1')->nullable()->comment('名字');
-            $table->string('name2')->nullable()->comment('名前');
+            $table->string('first_name')->nullable()->comment('名前');
+            $table->string('last_name')->nullable()->comment('名字');
             $table->unsignedTinyInteger('sex_id')->comment('性別ID');
             $table->unsignedSmallInteger('position_id')->default(Position::NotSet)->comment('役職ID');
             $table->string('password')->comment('パスワード');

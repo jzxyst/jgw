@@ -18,8 +18,8 @@ use App\Enums\Sex;
 $factory->define(\App\Orm\User::class, function (Faker $faker) {
     return [
         'email' => $faker->unique()->safeEmail,
-        'name1' => $faker->lastName,
-        'name2' => $faker->firstName,
+        'last_name' => $faker->lastName,
+        'first_name' => $faker->firstName,
         'sex_id' => \App\Orm\Sex::where('sex_code', Sex::getRandomValue())->first(),
         'password' => $faker->password,
         'unique_id' => $faker->unique()->md5,
