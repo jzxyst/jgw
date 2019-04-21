@@ -36,6 +36,11 @@ class User extends Authenticatable
         'sex_id' => \App\Enums\Sex::NOT_KNOWN,
     ];
 
+    protected $appends = [
+        'sex',
+        'position',
+    ];
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -58,5 +63,23 @@ class User extends Authenticatable
     public function userWorkStatus()
     {
         return $this->hasOne(\App\Orm\UserWorkStatus::class, 'user_id', 'user_id');
+    }
+
+    /**
+     * @return mixed
+     * @todo 多分もっといい書き方がある...
+     */
+    public function getSexAttribute()
+    {
+        return \App\Orm\Sex::find($this->attributes['sex_id']);
+    }
+
+    /**
+     * @return mixed
+     * @todo 多分もっといい書き方がある...
+     */
+    public function getPositionAttribute()
+    {
+        return \App\Orm\Position::find($this->attributes['position_id']);
     }
 }
