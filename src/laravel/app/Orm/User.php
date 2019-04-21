@@ -29,7 +29,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'user_id', 'password', 'email_verified_at'
+        'password', 'email_verified_at'
+    ];
 
     protected $attributes = [
         'sex_id' => \App\Enums\Sex::NOT_KNOWN,
