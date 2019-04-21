@@ -34,6 +34,7 @@ class User extends Authenticatable
 
     protected $attributes = [
         'sex_id' => \App\Enums\Sex::NOT_KNOWN,
+        'position_id' => \App\Enums\Position::NotSet,
     ];
 
     protected $appends = [
