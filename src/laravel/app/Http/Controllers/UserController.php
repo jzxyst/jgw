@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Orm\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use App\Http\Requests\StoreUserRequest;
 
 class UserController extends Controller
 {
@@ -36,9 +37,19 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-        //
+        return response()->json(
+            \App\Model\User::create($request->only([
+                'email',
+                'first_name',
+                'last_name',
+                'sex_id',
+                'sex_id',
+                'position_id',
+                'password',
+            ]))
+        );
     }
 
     /**
