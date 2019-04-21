@@ -17,6 +17,6 @@ class UserWorkStatus extends Model
      */
     public function userWorkStatusLog()
     {
-        return $this->hasOne('\App\Orm\UserWorkStatusLog', 'user_work_status_log_id', 'user_work_status_log_id');
+        return $this->hasOne(\App\Orm\UserWorkStatusLog::class, 'user_work_status_log_id', 'user_work_status_log_id');
     }
 }

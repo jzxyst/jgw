@@ -10,6 +10,6 @@ class WorkState extends Model
 
     public function workStateGroup()
     {
-        return $this->hasOne('\App\Orm\WorkStateGroup', 'work_state_group_id', 'work_state_group_id');
+        return $this->hasOne(\App\Orm\WorkStateGroup::class, 'work_state_group_id', 'work_state_group_id');
     }
 }

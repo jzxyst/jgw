@@ -10,6 +10,6 @@ class Position extends Model
 
     public function position_group()
     {
-        return $this->hasOne('\App\Orm\PositionGroup', 'position_group_id', 'position_group_id');
+        return $this->hasOne(\App\Orm\PositionGroup::class, 'position_group_id', 'position_group_id');
     }
 }

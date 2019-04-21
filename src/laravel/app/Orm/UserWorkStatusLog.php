@@ -17,6 +17,6 @@ class UserWorkStatusLog extends Model
 
     public function workState()
     {
-        return $this->hasOne('\App\Orm\WorkState', 'work_state_id', 'work_state_id');
+        return $this->hasOne(\App\Orm\WorkState::class, 'work_state_id', 'work_state_id');
     }
 }

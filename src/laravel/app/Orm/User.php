@@ -41,7 +41,7 @@ class User extends Authenticatable
      */
     public function sex()
     {
-        return $this->hasOne('\App\Orm\Sex', 'sex_id', 'sex_id');
+        return $this->hasOne(\App\Orm\Sex::class, 'sex_id', 'sex_id');
     }
 
     /**
@@ -49,7 +49,7 @@ class User extends Authenticatable
      */
     public function position()
     {
-        return $this->hasOne('\App\Orm\Position', 'position_id', 'position_id');
+        return $this->hasOne(\App\Orm\Position::class, 'position_id', 'position_id');
     }
 
     /**
@@ -57,6 +57,6 @@ class User extends Authenticatable
      */
     public function userWorkStatus()
     {
-        return $this->hasOne('\App\Orm\UserWorkStatus', 'user_id', 'user_id');
+        return $this->hasOne(\App\Orm\UserWorkStatus::class, 'user_id', 'user_id');
     }
 }
