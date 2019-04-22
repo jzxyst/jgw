@@ -47,7 +47,8 @@ class UserController extends Controller
                 'sex_id',
                 'position_id',
                 'password',
-            ]))
+            ])),
+            Response::HTTP_CREATED
         );
     }
 
