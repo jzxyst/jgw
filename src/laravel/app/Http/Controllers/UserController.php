@@ -89,7 +89,7 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Orm\User  $user
+     * @param $id
      * @return \Illuminate\Http\Response
      */
 //    public function destroy(User $user)
