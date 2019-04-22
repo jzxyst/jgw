@@ -9,8 +9,8 @@ class ModelBase
     {
         // orm instance
         $namespace = config('model.orm_namespace');
-        $orm_name = $namespace . '\\' . static::$className;
-        $orm = new $orm_name();
+        $ormName = $namespace . '\\' . static::$className;
+        $orm = new $ormName();
 
         // add to attributes
         foreach ($values as $key => $value) {
