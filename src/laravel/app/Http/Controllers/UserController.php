@@ -45,7 +45,6 @@ class UserController extends Controller
                 'first_name',
                 'last_name',
                 'sex_id',
-                'sex_id',
                 'position_id',
                 'password',
             ]))
