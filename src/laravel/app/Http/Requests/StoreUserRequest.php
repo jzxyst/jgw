@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Validation\Rule;
+
 class StoreUserRequest extends ApiFormRequest
 {
     /**
@@ -12,7 +14,12 @@ class StoreUserRequest extends ApiFormRequest
     public function rules()
     {
         return [
-            'email' => 'required|email|unique:users|max:255',
+            'email' => [
+                'required',
+                'email',
+                'max:255',
+                Rule::unique('users')->ignore($this->user, 'user_id')
+            ],
             'first_name' => 'max:255',
             'last_name' => 'max:255',
             'sex_id' => 'numeric|exists:sexes',

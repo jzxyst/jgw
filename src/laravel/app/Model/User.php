@@ -26,6 +26,20 @@ class User extends ModelBase
     }
 
     /**
+     * Update User table record.
+     * @param array $data
+     * @param $primaryKey
+     * @return mixed
+     */
+    public static function update(array $data, $primaryKey = null)
+    {
+        // Hash password
+        isset($data[self::$passwordColumnName]) and $data[self::$passwordColumnName] = self::hashPassword($data[self::$passwordColumnName]);
+
+        return parent::update($data, $primaryKey);
+    }
+
+    /**
      * Hash password.
      * @param $password
      * @return string

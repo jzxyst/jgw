@@ -77,13 +77,31 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Orm\User  $user
+     * @param StoreUserRequest $request
+     * @param $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(StoreUserRequest $request, $id)
     {
-        //
+        $user = User::find($id);
+
+        // No record.
+        if (isset($user) === false) {
+            return response()->noContent(Response::HTTP_NOT_FOUND);
+        }
+
+        return response()->json(
+            \App\Model\User::update($request->only([
+                'user_id',
+                'email',
+                'first_name',
+                'last_name',
+                'sex_id',
+                'position_id',
+                'password',
+            ]), $id),
+            Response::HTTP_NO_CONTENT
+        );
     }
 
     /**
