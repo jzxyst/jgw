@@ -13,3 +13,4 @@ use Illuminate\Http\Request;
 |
 */
 Route::resource('user', 'UserController');
+Route::resource('user_work_status', 'UserWorkStatusController');
