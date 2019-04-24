@@ -12,7 +12,7 @@ class UserWorkStatusLog extends Model
     protected $primaryKey = 'user_work_status_log_id';
 
     protected $fillable = [
-        'user_id', 'work_state_id', 'punched_at'
+        'user_id', 'work_state_id', 'prev_user_work_status_log_id', 'next_user_work_status_log_id', 'punched_at'
     ];
 
     protected $hidden = [

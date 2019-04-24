@@ -122,6 +122,17 @@ class UserWorkStatusController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+
+        // No record.
+        if (isset($user) === false) {
+            return response()->noContent(Response::HTTP_NOT_FOUND);
+        }
+
+        return response()->json(
+            \App\Model\UserWorkStatus::revert(
+                $id,
+            ), Response::HTTP_OK
+        );
     }
 }
