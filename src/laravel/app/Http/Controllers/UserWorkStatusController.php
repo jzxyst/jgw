@@ -91,6 +91,7 @@ class UserWorkStatusController extends Controller
 
     /**
      * Update the specified resource in storage.
+     * "Punch time card."
      *
      * @param Request $request
      * @param  int  $id
