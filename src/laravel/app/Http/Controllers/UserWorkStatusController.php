@@ -41,19 +41,9 @@ class UserWorkStatusController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(StoreUserWorkStatusRequest $request)
+    public function store(Request $request)
     {
-        return response()->json(
-            \App\Model\User::create($request->only([
-                'email',
-                'first_name',
-                'last_name',
-                'sex_id',
-                'position_id',
-                'password',
-            ])),
-            Response::HTTP_CREATED
-        );
+        return response()->noContent(Response::HTTP_METHOD_NOT_ALLOWED);
     }
 
     /**
