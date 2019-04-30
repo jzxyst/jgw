@@ -10,6 +10,13 @@
     </head>
     <body>
         <div id="root"></div>
+        <script>
+            window._sharedData = {
+                app: {
+                    name: '{{Config::get('app.name')}}'
+                }
+            };
+        </script>
         <script src="{{asset('js/app.js')}}"></script>
     </body>
 </html>
