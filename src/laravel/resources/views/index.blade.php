@@ -7,6 +7,8 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>{{Config::get('app.name')}}</title>
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500">
+        <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
     </head>
     <body>
         <div id="root"></div>
