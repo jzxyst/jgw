@@ -45,3 +45,4 @@ WORKDIR /src/laravel
 
 # todo
 # php artisan passport:keys
+# php artisan passport:client --password
