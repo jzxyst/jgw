@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class SexesTable extends Migration
+class CreateSexesTable extends Migration
 {
     private $table_name = 'sexes';
 
