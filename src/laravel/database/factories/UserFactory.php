@@ -21,8 +21,8 @@ $factory->define(\App\Orm\User::class, function (Faker $faker) {
         'last_name' => $faker->lastName,
         'first_name' => $faker->firstName,
         'sex_id' => Sex::getRandomValue(),
-        'password' => $faker->password,
-        'unique_id' => $faker->unique()->md5,
+        'password' => \App\Model\User::hashPassword($faker->password),
+        'unique_id' => \App\Model\User::generateUniqueId(),
         'email_verified_at' => now(),
     ];
 });
