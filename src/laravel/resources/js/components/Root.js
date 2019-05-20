@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Header from './Header'
 import Footer from './Footer'
+import Dashboard from "./Dashbord";
 
 export default class Root extends Component {
     // constructor(props) {
@@ -18,8 +19,9 @@ export default class Root extends Component {
     render() {
         return (
             <div>
-                <Header/>
-                <Footer/>
+                {/*<Header/>*/}
+                {/*<Footer/>*/}
+                <Dashboard/>
             </div>
         );
     }
