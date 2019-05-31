@@ -32,11 +32,21 @@ class User extends Authenticatable
         'password', 'email_verified_at'
     ];
 
+    /**
+     * The attributes that default value for create.
+     *
+     * @var array
+     */
     protected $attributes = [
         'sex_id' => \App\Enums\Sex::NOT_KNOWN,
         'position_id' => \App\Enums\Position::NotSet,
     ];
 
+    /**
+     * The attributes that append to array.
+     *
+     * @var array
+     */
     protected $appends = [
         'sex',
         'position',
