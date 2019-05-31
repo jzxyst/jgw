@@ -40,14 +40,9 @@ class UserController extends Controller
     public function store(StoreUserRequest $request)
     {
         return response()->json(
-            \App\Model\User::create($request->only([
-                'email',
-                'first_name',
-                'last_name',
-                'sex_id',
-                'position_id',
-                'password',
-            ])),
+            \App\Orm\User::create(
+                $request->all()
+            ),
             Response::HTTP_CREATED
         );
     }
@@ -90,16 +85,13 @@ class UserController extends Controller
             return response()->noContent(Response::HTTP_NOT_FOUND);
         }
 
+        // Update.
+        $user->fill(
+            $request->all()
+        )->save();
+
         return response()->json(
-            \App\Model\User::update($request->only([
-                'user_id',
-                'email',
-                'first_name',
-                'last_name',
-                'sex_id',
-                'position_id',
-                'password',
-            ]), $id),
+            $user,
             Response::HTTP_NO_CONTENT
         );
     }
