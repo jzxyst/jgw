@@ -11,6 +11,10 @@ class DummySeeder extends Seeder
      */
     public function run()
     {
+        $this->call(OauthClientsTableSeeder::class);
+        $this->call(OauthAccessTokensTableSeeder::class);
+        $this->call(OauthRefreshTokensTableSeeder::class);
+
         $this->call(UsersTableSeeder::class);
         $this->call(OrganizationsTableSeeder::class);
     }
