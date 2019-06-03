@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRoleAbilitiesTable extends Migration
+class CreateRolePoliciesTable extends Migration
 {
     private $table_name = 'role_policies';
 
