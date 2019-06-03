@@ -4,9 +4,9 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAbilitiesTable extends Migration
+class CreateRoleAbilitiesTable extends Migration
 {
-    private $table_name = 'abilities';
+    private $table_name = 'role_policies';
 
     /**
      * Run the migrations.
@@ -16,8 +16,9 @@ class CreateAbilitiesTable extends Migration
     public function up()
     {
         Schema::create($this->table_name, function (Blueprint $table) {
-            $table->increments('ability_id')->comment('アビリティID');
-            $table->string('ability_name')->comment('アビリティ名');
+            $table->increments('role_policy_id')->comment('ロールポリシーID');
+            $table->unsignedInteger('role_id')->comment('ロールID');
+            $table->unsignedInteger('policy_id')->comment('ポリシーID');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });

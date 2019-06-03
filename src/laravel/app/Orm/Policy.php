@@ -4,7 +4,7 @@ namespace App\Orm;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Ability extends Model
+class Policy extends Model
 {
-    protected $primaryKey = 'ability_id';
+    protected $primaryKey = 'policy_id';
 }
