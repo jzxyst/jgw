@@ -71,6 +71,9 @@ class User extends Authenticatable
         parent::__construct($attributes);
     }
 
+    /**
+     * @return array
+     */
     public static function getDefaultValue()
     {
         return [
