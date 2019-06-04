@@ -60,11 +60,22 @@ class User extends Authenticatable
      */
     public function __construct(array $attributes = [])
     {
-        $this->setRawAttributes(array_merge($this->attributes, [
-            'unique_id' => self::generateUniqueId()
-        ]), true);
+        $this->setRawAttributes(
+            array_merge(
+                $this->attributes,
+                self::getDefaultValue()
+            ),
+            true
+        );
 
         parent::__construct($attributes);
+    }
+
+    public static function getDefaultValue()
+    {
+        return [
+            'unique_id' => self::generateUniqueId()
+        ];
     }
 
     /**
