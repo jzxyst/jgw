@@ -18,8 +18,7 @@ class UserPolicy
      */
     public function index(User $user)
     {
-        //
-        return true;
+        return $user->hasPolicy(__METHOD__);
     }
 
     /**
@@ -31,8 +30,7 @@ class UserPolicy
      */
     public function view(User $user, User $model)
     {
-        //
-        return true;
+        return $user->hasPolicy(__METHOD__);
     }
 
     /**
@@ -43,8 +41,7 @@ class UserPolicy
      */
     public function create(User $user)
     {
-        //
-        return true;
+        return $user->hasPolicy(__METHOD__);
     }
 
     /**
@@ -56,8 +53,7 @@ class UserPolicy
      */
     public function update(User $user, User $model)
     {
-        //
-        return true;
+        return $user->hasPolicy(__METHOD__) or $user->isSameUser($model);
     }
 
     /**
@@ -69,8 +65,7 @@ class UserPolicy
      */
     public function delete(User $user, User $model)
     {
-        //
-        return true;
+        return $user->hasPolicy(__METHOD__);
     }
 
     /**

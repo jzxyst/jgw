@@ -17,7 +17,7 @@ class CreateRolePoliciesTable extends Migration
     {
         Schema::create($this->table_name, function (Blueprint $table) {
             $table->increments('role_policy_id')->comment('ロールポリシーID');
-            $table->unsignedInteger('role_id')->comment('ロールID');
+            $table->unsignedInteger('role_id')->index()->comment('ロールID');
             $table->unsignedInteger('policy_id')->comment('ポリシーID');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));

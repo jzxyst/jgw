@@ -8,6 +8,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Passport\HasApiTokens;
+use phpDocumentor\Reflection\Types\Integer;
 
 class User extends Authenticatable
 {
@@ -91,6 +92,22 @@ class User extends Authenticatable
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function userRoles()
+    {
+        return $this->hasMany(\App\Orm\UserRole::class, 'user_id', 'user_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function roles()
+    {
+        return $this->belongsToMany(\App\Orm\Role::class, 'user_roles', 'user_id', 'role_id');
+    }
+
+    /**
      * @return mixed
      * @todo 多分もっといい書き方がある...
      */
@@ -155,5 +172,49 @@ class User extends Authenticatable
     public static function generateUniqueId()
     {
         return uniqid(rand(), true);
+    }
+
+    /**
+     * Return that is match user id.
+     * @param $user
+     * @return bool
+     */
+    public function isSameUser($user)
+    {
+        $userId = null;
+
+        if (is_integer($user)) {
+            $userId = $user;
+        } elseif (get_class($user) === User::class) {
+            $userId = $user->user_id;
+        }
+
+        return $this->user_id === $userId;
+    }
+
+    /**
+     * Return policy collection.
+     * @return \Illuminate\Support\Collection
+     */
+    public function getPolicies()
+    {
+        $policies = collect();
+        foreach ($this->roles as $role) {
+            $policies = $policies->concat($role->policies);
+        }
+
+        return $policies;
+    }
+
+    /**
+     * @param $entryPoint
+     * @return bool
+     */
+    public function hasPolicy($entryPoint)
+    {
+        $policies = $this->getPolicies();
+        return boolval($policies->filter(function($policy) use ($entryPoint) {
+            return $policy->isMatchEntryPoint($entryPoint);
+        })->count());
     }
 }

@@ -18,7 +18,7 @@ class CreatePoliciesTable extends Migration
         Schema::create($this->table_name, function (Blueprint $table) {
             $table->increments('policy_id')->comment('ポリシーID');
             $table->string('policy_name')->comment('ポリシー名');
-            $table->string('entry_point')->comment('エントリポイント');
+            $table->string('entry_point')->unique()->comment('エントリポイント');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });
