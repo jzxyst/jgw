@@ -18,5 +18,8 @@ class DummySeeder extends Seeder
         $this->call(UsersTableSeeder::class);
         $this->call(OrganizationsTableSeeder::class);
         $this->call(RolesTableSeeder::class);
+        $this->call(PoliciesTableSeeder::class);
+        $this->call(UserRolesTableSeeder::class);
+        $this->call(RolePoliciesTableSeeder::class);
     }
 }
