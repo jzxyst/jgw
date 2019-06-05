@@ -5,13 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noindex, nofollow">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <title>{{Config::get('app.name')}}</title>
+        <title>{{config('app.name')}}</title>
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500">
-        <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather|Roboto:400">
+        <link rel="stylesheet" href="//unpkg.com/ionicons@4.2.2/dist/css/ionicons.min.css">
     </head>
     <body>
-        <div id="root"></div>
+        <div id="app"></div>
         <script>
             window._sharedData = {
                 app: {
