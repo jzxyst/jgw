@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import store from './store'
 
 // Import page components.
 import Dashboard from './pages/Dashboard.vue'
@@ -16,7 +17,14 @@ const routes = [
     },
     {
         path: '/signin',
-        component: SignIn
+        component: SignIn,
+        beforeEnter (to, from, next) {
+            if (store.getters['auth/check']) {
+                next('/')
+            } else {
+                next()
+            }
+        }
     }
 ];
 
