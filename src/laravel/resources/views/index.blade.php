@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noindex, nofollow">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <title>{{config('app.name')}}</title>
+        <title>{{ config('app.name') }}</title>
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather|Roboto:400">
@@ -16,10 +16,10 @@
         <script>
             window._sharedData = {
                 app: {
-                    name: '{{Config::get('app.name')}}'
+                    name: '{{ config('app.name') }}'
                 }
             };
         </script>
-        <script src="{{asset('js/app.js')}}"></script>
+        <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>
