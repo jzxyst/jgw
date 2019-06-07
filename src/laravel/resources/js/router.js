@@ -5,16 +5,15 @@ import store from './store'
 // Import page components.
 import Dashboard from './pages/Dashboard.vue'
 import SignIn from './pages/SignIn.vue'
+import NotFound from "./pages/errors/NotFound";
 
 // Use VueRouter plugin.
 Vue.use(VueRouter);
 
 // Mapping.
 const routes = [
-    {
-        path: '/',
-        component: Dashboard
-    },
+    { path: '*', component: NotFound, meta: { isPublic: true } },
+    { path: '/', component: Dashboard },
     {
         path: '/signin',
         component: SignIn,
