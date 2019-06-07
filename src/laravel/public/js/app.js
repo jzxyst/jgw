@@ -36648,6 +36648,9 @@ var routes = [{
 }, {
   path: '/signin',
   component: _pages_SignIn_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+  meta: {
+    isPublic: true
+  },
   beforeEnter: function beforeEnter(to, from, next) {
     if (_store__WEBPACK_IMPORTED_MODULE_2__["default"].getters['auth/check']) {
       next('/');
@@ -36659,6 +36662,20 @@ var routes = [{
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: 'history',
   routes: routes
+});
+router.beforeEach(function (to, from, next) {
+  if (to.matched.some(function (record) {
+    return !record.meta.isPublic;
+  }) && !_store__WEBPACK_IMPORTED_MODULE_2__["default"].getters['auth/check']) {
+    next({
+      path: '/signin',
+      query: {
+        redirect: to.fullPath
+      }
+    });
+  } else {
+    next();
+  }
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);
 
