@@ -1856,13 +1856,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "App.vue"
 });
@@ -1908,6 +1901,20 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -20339,23 +20346,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "v-app",
-    [
-      _c("v-navigation-drawer", { attrs: { app: "" } }),
-      _vm._v(" "),
-      _c("v-toolbar", { attrs: { app: "" } }),
-      _vm._v(" "),
-      _c(
-        "v-content",
-        [_c("v-container", { attrs: { fluid: "" } }, [_c("router-view")], 1)],
-        1
-      ),
-      _vm._v(" "),
-      _c("v-footer", { attrs: { app: "" } })
-    ],
-    1
-  )
+  return _c("v-app", [_c("RouterView")], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -20415,88 +20406,136 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "panel" }, [
-    _c("h1", [_vm._v("Sign In")]),
-    _vm._v(" "),
-    _c(
-      "form",
-      {
-        staticClass: "form",
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-            return _vm.signIn($event)
-          }
-        }
-      },
-      [
-        _c("label", { attrs: { for: "login-email" } }, [_vm._v("Email")]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.signInForm.email,
-              expression: "signInForm.email"
-            }
-          ],
-          staticClass: "form__item",
-          attrs: { type: "text", id: "login-email" },
-          domProps: { value: _vm.signInForm.email },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.signInForm, "email", $event.target.value)
-            }
-          }
-        }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "login-password" } }, [_vm._v("Password")]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.signInForm.password,
-              expression: "signInForm.password"
-            }
-          ],
-          staticClass: "form__item",
-          attrs: { type: "password", id: "login-password" },
-          domProps: { value: _vm.signInForm.password },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.signInForm, "password", $event.target.value)
-            }
-          }
-        }),
-        _vm._v(" "),
-        _vm._m(0)
-      ]
-    )
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form__button" }, [
+  return _c(
+    "v-app",
+    [
       _c(
-        "button",
-        { staticClass: "button button--inverse", attrs: { type: "submit" } },
-        [_vm._v("login")]
+        "v-content",
+        [
+          _c(
+            "v-container",
+            { attrs: { fluid: "", "fill-height": "" } },
+            [
+              _c(
+                "v-layout",
+                { attrs: { "align-center": "", "justify-center": "" } },
+                [
+                  _c(
+                    "v-flex",
+                    { attrs: { xs12: "", sm8: "", md4: "" } },
+                    [
+                      _c(
+                        "v-card",
+                        { staticClass: "elevation-12" },
+                        [
+                          _c(
+                            "v-toolbar",
+                            { attrs: { dark: "", color: "primary" } },
+                            [
+                              _c("v-toolbar-title", [_vm._v("Sign In")]),
+                              _vm._v(" "),
+                              _c("v-spacer")
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-form",
+                            {
+                              on: {
+                                submit: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.signIn($event)
+                                }
+                              }
+                            },
+                            [
+                              _c(
+                                "v-card-text",
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      name: "email",
+                                      label: "Email",
+                                      type: "email",
+                                      "prepend-icon": "person"
+                                    },
+                                    model: {
+                                      value: _vm.signInForm.email,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.signInForm, "email", $$v)
+                                      },
+                                      expression: "signInForm.email"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      name: "password",
+                                      label: "Password",
+                                      type: "password",
+                                      "prepend-icon": "lock"
+                                    },
+                                    model: {
+                                      value: _vm.signInForm.password,
+                                      callback: function($$v) {
+                                        _vm.$set(
+                                          _vm.signInForm,
+                                          "password",
+                                          $$v
+                                        )
+                                      },
+                                      expression: "signInForm.password"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-card-actions",
+                                [
+                                  _c("v-spacer"),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-btn",
+                                    {
+                                      attrs: {
+                                        color: "primary",
+                                        type: "submit",
+                                        disabled:
+                                          !_vm.signInForm.email ||
+                                          !_vm.signInForm.password
+                                      }
+                                    },
+                                    [_vm._v("Sign In")]
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
       )
-    ])
-  }
-]
+    ],
+    1
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
