@@ -7,8 +7,6 @@ import App from './App.vue'
 
 const initialize = async () => {
 
-    await store.dispatch('auth/sign');
-
     new Vue({
         el: '#app',
         router,
