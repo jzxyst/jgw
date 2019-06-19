@@ -11,7 +11,7 @@
                             </v-toolbar>
                             <v-form @submit.prevent="signIn">
                                 <v-card-text>
-                                    <v-text-field name="email" label="Email" type="email" prepend-icon="person" v-model="signInForm.email"></v-text-field>
+                                    <v-text-field name="email" label="Email" type="email" prepend-icon="person" autofocus v-model="signInForm.email"></v-text-field>
                                     <v-text-field name="password" label="Password" type="password" prepend-icon="lock" v-model="signInForm.password"></v-text-field>
                                 </v-card-text>
                                 <v-card-actions>
