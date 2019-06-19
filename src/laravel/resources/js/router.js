@@ -19,7 +19,7 @@ const routes = [
         component: SignIn,
         meta: { isPublic: true },
         beforeEnter (to, from, next) {
-            if (store.getters['auth/check']) {
+            if (store.getters['auth/isSignedIn']) {
                 next('/')
             } else {
                 next()
@@ -34,7 +34,7 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-    if (to.matched.some(record => !record.meta.isPublic) && !store.getters['auth/check']) {
+    if (to.matched.some(record => !record.meta.isPublic) && !store.getters['auth/isSignedIn']) {
         next({ path: '/signin', query: { redirect: to.fullPath }});
     } else {
         next();
