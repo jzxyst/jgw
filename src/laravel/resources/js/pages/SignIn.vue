@@ -41,9 +41,13 @@
         methods: {
             async signIn () {
 
+                // Call sign in api.
                 await this.$store.dispatch('auth/signIn', this.signInForm);
 
-                this.$router.push('/');
+                // Sign in succeeded.
+                if (this.$store.getters['auth/isSignedIn']) {
+                    this.$router.push(this.$route.query.redirect);
+                }
             }
         }
     }

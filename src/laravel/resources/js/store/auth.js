@@ -1,14 +1,25 @@
 const state = {
-    user: null
+    user: null,
+    api: {
+        status: null,
+        response: null,
+        errors: null
+    }
 };
 
 const getters = {
     isSignedIn: state => !!state.user,
+    hasError: state => !!state.api.errors
 };
 
 const mutations = {
     setUser (state, user) {
         state.user = user;
+    },
+    setApiResponse (state, response) {
+        state.api.status = response.status;
+        state.api.response = response;
+        state.api.errors = response.data.errors;
     }
 };
 
@@ -32,8 +43,14 @@ const actions = {
      * @returns {Promise<void>}
      */
     async signIn (context, data) {
-        const response = await axios.post('/api/signin', data);
-        context.commit('setUser', response.data);
+        try {
+            const response = await axios.post('/api/signin', data);
+            context.commit('setUser', response.data);
+            context.commit('setApiResponse', response);
+        }
+        catch (error) {
+            context.commit('setApiResponse', error.response);
+        }
     },
 
     /**
