@@ -4,7 +4,7 @@
 
 <script>
     export default {
-        name: "Dashboard.vue"
+        name: "Dashboard"
     }
 </script>
 
