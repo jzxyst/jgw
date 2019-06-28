@@ -6,6 +6,7 @@ import store from './store'
 import Dashboard from './pages/Dashboard.vue'
 import SignIn from './pages/SignIn.vue'
 import NotFound from "./pages/errors/NotFound";
+import DefaultLayout from "./components/layouts/DefaultLayout";
 
 // Use VueRouter plugin.
 Vue.use(VueRouter);
@@ -13,7 +14,6 @@ Vue.use(VueRouter);
 // Mapping.
 const routes = [
     { path: '*', component: NotFound, meta: { isPublic: true } },
-    { path: '/', component: Dashboard },
     {
         path: '/signin',
         component: SignIn,
@@ -25,7 +25,14 @@ const routes = [
                 next()
             }
         }
-    }
+    },
+    {
+        path: '/',
+        component: DefaultLayout,
+        children: [
+            { path: '/dashboard', component: Dashboard, alias: '/' }
+        ]
+    },
 ];
 
 const router = new VueRouter({
