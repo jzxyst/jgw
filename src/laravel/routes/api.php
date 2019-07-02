@@ -20,5 +20,5 @@ Route::get('sign', function () {
 Route::post('signin', 'Auth\LoginController@login')->name('signin');
 Route::post('signout', 'Auth\LoginController@logout')->name('signout');
 
-Route::resource('user', 'UserController')->middleware('auth:api');
+Route::resource('user', 'UserController')->middleware('auth:web');
 Route::resource('user_work_status', 'UserWorkStatusController');
