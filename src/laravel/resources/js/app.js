@@ -9,6 +9,7 @@ const initialize = async () => {
 
     new Vue({
         el: '#app',
+        vuetify,
         router,
         store,
         components: { App },
