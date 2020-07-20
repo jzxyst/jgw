@@ -2,36 +2,36 @@
     <v-app>
         <v-navigation-drawer app clipped v-model="drawer">
             <v-list dense>
-                <v-list-tile to="/dashboard">
-                    <v-list-tile-action>
+                <v-list-item to="/dashboard">
+                    <v-list-item-action>
                         <v-icon>dashboard</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content>
-                        <v-list-tile-title>Dashboard</v-list-tile-title>
-                    </v-list-tile-content>
-                </v-list-tile>
-                <v-list-tile to="/userlist">
-                    <v-list-tile-action>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                        <v-list-item-title>Dashboard</v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
+                <v-list-item to="/userlist">
+                    <v-list-item-action>
                         <v-icon>account_box</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content>
-                        <v-list-tile-title>UserList</v-list-tile-title>
-                    </v-list-tile-content>
-                </v-list-tile>
-                <v-list-tile to="/settings">
-                    <v-list-tile-action>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                        <v-list-item-title>UserList</v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
+                <v-list-item to="/settings">
+                    <v-list-item-action>
                         <v-icon>settings</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content>
-                        <v-list-tile-title>Settings</v-list-tile-title>
-                    </v-list-tile-content>
-                </v-list-tile>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                        <v-list-item-title>Settings</v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
             </v-list>
         </v-navigation-drawer>
-        <v-toolbar app fixed clipped-left dark color="primary">
-            <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+        <v-app-bar app fixed clipped-left dark color="primary">
+            <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
             <v-toolbar-title>{{ this.$store.state.global.app.name }}</v-toolbar-title>
-        </v-toolbar>
+        </v-app-bar>
         <v-content>
             <transition name="fade" mode="out-in">
                 <router-view />
