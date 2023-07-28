@@ -12,7 +12,7 @@
 
 <style scoped>
     .fade-enter-active, .fade-leave-active {
-        transition: opacity .7s;
+        transition: opacity .2s;
     }
     .fade-enter, .fade-leave-to {
         opacity: 0;
