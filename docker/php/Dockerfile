@@ -1,4 +1,4 @@
-FROM php:8.0-fpm
+FROM php:8.2-fpm
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV DEBIAN_FRONTEND noninteractive
@@ -10,7 +10,7 @@ ENV PATH $PATH:/composer/vendor/bin
 RUN apt-get update \
 	&& apt-get install -y zlib1g-dev libzip-dev unzip libpq-dev \
 	&& docker-php-ext-install zip pdo_mysql \
-	&& pecl install xdebug-3.1.0beta1 \
+	&& pecl install xdebug \
 	&& docker-php-ext-enable xdebug
 
 # composerのインストール
